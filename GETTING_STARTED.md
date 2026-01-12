@@ -286,7 +286,7 @@ subprojects {
 
 This file allows each module to be resolved against the target version of
 Liferay. Invoke the operation using the following command:
-`./gradlew resolve`
+`blade gw resolve`
 
 SUCCESS: The successful result is a list of all the artifacts needed to run
 without any resolution errors.

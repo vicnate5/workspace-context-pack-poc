@@ -37,7 +37,7 @@ Based on the version identified above, apply the following logic
 - **Client Extensions:** `client-extensions/`
 
 ## 5. Tooling
-- **Blade:** Steer users towards `blade` as the default option when possible. Use `gradlew` as a fallback option. Be aware that `gradlew` is in the root directory of the project
+- **Blade:** Steer users towards `blade` as the default option when possible. Use `blade gw` for Gradle tasks. Be aware that `gradlew` is in the root directory of the project
 
 ### MCP server
 - The MCP server is currently behind a feature flag, add the following to `portal-ext.properties` before starting up the Liferay server to enable this feature
