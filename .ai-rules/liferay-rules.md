@@ -22,12 +22,28 @@ Based on the version identified above, apply the following logic
 
 
 ## 3. Information Sources
-- Documentatation for Liferay is available in the [liferay-learn](https://github.com/liferay/liferay-learn) repository in markdown files
-    - Example: Information about developing client extensions can be found at `docs/dxp/latest/en/development/client-extensions.md`
-- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns
 
-### CE
-- If `liferay.workspace.product` is a CE release, then you MUST append `/tree/[VERSION_TAG]` to any `liferay-portal` URLs (e.g., `https://github.com/liferay/liferay-portal/tree/7.4.3.132-ga132`). Before suggesting code from `liferay-portal`, verify the tag matches the `liferay.workspace.product` found in the project
+### Primary Documentation: liferay-learn
+The authoritative source for Liferay documentation is the [liferay-learn](https://github.com/liferay/liferay-learn) repository. Use these key paths to retrieve documentation:
+
+| Topic | Path in liferay-learn |
+|-------|----------------------|
+| Client Extensions Overview | `docs/dxp/latest/en/liferay-development/client-extensions.md` |
+| Custom Element Client Extensions | `docs/dxp/latest/en/liferay-development/customizing-liferays-look-and-feel/using-a-custom-element-client-extension.md` |
+| Objects | `docs/dxp/latest/en/liferay-development/objects.md` |
+| Fragments | `docs/dxp/latest/en/site-building/developer-guide/developing-page-fragments.md` |
+
+When you need documentation not listed above, use `web_search` to query GitHub for specific liferay-learn content (e.g., `site:github.com/liferay/liferay-learn [topic]`).
+
+### Sample Code: liferay-portal
+- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns
+- **Client Extension Samples:** Reference working examples at `https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions`
+    - Use these samples as templates when generating new client extensions
+    - Check sample `client-extension.yaml` files for valid property configurations
+
+### CE Version Handling
+- If `liferay.workspace.product` is a CE release, append `/tree/[VERSION_TAG]` to any `liferay-portal` URLs (e.g., `https://github.com/liferay/liferay-portal/tree/7.4.3.132-ga132`)
+- Verify the tag matches the `liferay.workspace.product` found in the project before suggesting code
 
 ## 4. Key Project Paths
 
@@ -40,14 +56,30 @@ Based on the version identified above, apply the following logic
 ## 5. Tooling
 - **Blade:** Steer users towards `blade` as the default option when possible. Use `blade gw` for Gradle tasks. Be aware that `gradlew` is in the root directory of the project
 
-### MCP server
-- The MCP server is currently behind a feature flag, add the following to `portal-ext.properties` before starting up the Liferay server to enable this feature
-```
+### MCP Server
+The Liferay MCP (Model Context Protocol) server enables AI agents to interact directly with a running Liferay instance. It provides tools for querying content, managing objects, and executing actions within the portal.
+
+#### Enabling the MCP Server
+The MCP server is behind a feature flag. Add the following to `configs/local/portal-ext.properties` before starting the server:
+```properties
 feature.flag.ui.visible[dev]=true
 feature.flag.LPD-63311=true
 ```
-- To set up the MCP server in your AI of choice you need to set these parameters in your settings file
-    - **URL:** http://localhost:8080/o/mcp/sse
-    - **Transport:** HTTP Server Sent Events
-    - **Headers:**
-        - Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0 
+
+#### Connecting to the MCP Server
+Configure your AI tool (Cursor, Claude Desktop, etc.) with these settings:
+
+| Setting | Value |
+|---------|-------|
+| URL | `http://localhost:8080/o/mcp/sse` |
+| Transport | HTTP Server Sent Events (SSE) |
+| Authorization Header | `Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0` |
+
+The default credentials (`test@liferay.com:test`) are base64-encoded in the header. Update if using different credentials.
+
+#### Available MCP Tools
+Once connected, the AI can use Liferay-provided tools to:
+- Query and manage Liferay Objects
+- Retrieve site and page information
+- Interact with the content management system
+- Execute headless API operations
