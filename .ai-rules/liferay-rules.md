@@ -21,9 +21,10 @@ Based on the version identified above, apply the following logic
 - Ensure all suggested Gradle dependencies align with the `target.platform.version` defined in the project workspace
 
 
-## 3. Repository Awareness
-- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns 
+## 3. Information Sources
 - Documentatation for Liferay is available in the [liferay-learn](https://github.com/liferay/liferay-learn) repository in markdown files
+    - Example: Information about developing client extensions can be found at `docs/dxp/latest/en/development/client-extensions.md`
+- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns
 
 ### CE
 - If `liferay.workspace.product` is a CE release, then you MUST append `/tree/[VERSION_TAG]` to any `liferay-portal` URLs (e.g., `https://github.com/liferay/liferay-portal/tree/7.4.3.132-ga132`). Before suggesting code from `liferay-portal`, verify the tag matches the `liferay.workspace.product` found in the project
