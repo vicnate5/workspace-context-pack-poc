@@ -48,8 +48,10 @@ When you need documentation not listed above, use `web_search` to query GitHub f
 ## 4. Key Project Paths
 
 - **Logs:** `bundles/tomcat/logs/`
-- **Configs:** `configs/common/`
-- **OSGi Configs:** `osgi/configs`
+- **Configs/Properties:** `configs/common/` (source) or `configs/[env]/` (environment-specific)
+- **OSGi Configs:**
+    - **Source:** `configs/[env]/osgi/configs/` (e.g., `configs/local/osgi/configs/`)
+    - **Runtime:** `bundles/osgi/configs/` (deployed configurations)
 - **Modules:** `modules/`
 - **Client Extensions:** `client-extensions/`
 

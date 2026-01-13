@@ -7,6 +7,7 @@ alwaysApply: false
 # Liferay Client Extension Mentor Protocol (Beginner Friendly)
 
 ## 0. Pre-Flight Check
+- **Version Check:** Read `gradle.properties` and verify `liferay.workspace.product` is >= 7.4 or Quarterly (q) releases. Client Extensions require Liferay 7.4+. If version < 7.4, suggest traditional OSGi module development instead.
 - Verify the `bundles/` folder exists. If it doesn't exist, guide users through the initial setup guide
 - Verify the Liferay server is currently running at `localhost:8080` with the user before proceeding
 
@@ -57,17 +58,18 @@ For more complex patterns (React, themes, object actions), reference the officia
 `https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions`
 
 ## 2. Deployment Guidance
-Run the following command from the workspace root:
-```bash
-blade gw :client-extensions:[name]:deploy
-```
 
-Or navigate to the extension folder:
+**Recommended approach:** Navigate to the extension folder and deploy:
 ```bash
 cd client-extensions/[name] && blade gw deploy
 ```
 
-This packages the client extension into a `.zip` archive and copies it to `bundles/osgi/client-extensions/` for automatic deployment.
+**Alternative:** From workspace root (requires exact project name match):
+```bash
+blade gw :client-extensions:[name]:deploy
+```
+
+This packages the client extension into a LUFFA (Liferay Universal File Format Archive) `.zip` file and copies it to `bundles/osgi/client-extensions/` for automatic deployment. The workspace plugin automatically generates the necessary Gradle build configuration when you create a client extension project.
 
 ## 3. Log Verification
 - Look for the log entry `STARTED [extension-id]_1.0.0`
