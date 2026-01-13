@@ -1,0 +1,1 @@
+../../.ai-rules/liferay-rules.md

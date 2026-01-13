@@ -1,0 +1,1 @@
+../../.ai-rules/guided-client-extension.md
