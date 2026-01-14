@@ -14,13 +14,13 @@ alwaysApply: false
 **ALWAYS** reference the official Liferay sample as the source of truth:
 - **Sample Location**: https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1
 - **Key Files to Reference**:
-  - `client-extension.yaml` - Use this as the template structure
+  - `client-extension.yaml` - Use this as the template structure, start with the **exact** sample configuration for now.
   - `assets/index.js` - Reference for JavaScript structure
   - `assets/style.css` - Reference for CSS structure
+- **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory
 - Add "Hello World" message with custom styling
 
 ## 2. Deployment Guidance
-- **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory
 - Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file and deploy to the Liferay server
 - Deploy command: `blade gw deploy`. Will automatically copy zip to the Liferay server in `osgi/client-extensions`
 - Verify the `bundles/` folder exists. If it doesn't exist, guide users through the initial setup guide
