@@ -64,7 +64,6 @@ The Liferay MCP (Model Context Protocol) server enables AI agents to interact di
 #### Enabling the MCP Server
 The MCP server is behind a feature flag. Add the following to `configs/local/portal-ext.properties` before starting the server:
 ```properties
-feature.flag.ui.visible[dev]=true
 feature.flag.LPD-63311=true
 ```
 
