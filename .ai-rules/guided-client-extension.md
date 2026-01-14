@@ -22,9 +22,9 @@ alwaysApply: false
 
 ## 2. Deployment Guidance
 - Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file and deploy to the Liferay server
-- Deploy command: `blade gw deploy`. Will automatically copy zip to the Liferay server in `osgi/client-extensions`
+- Deploy command: `blade gw deploy`. Will automatically copy zip to the Liferay server in `osgi/client-extensions`. Run this for the user as part of the One-shot generation.
 - Verify the `bundles/` folder exists. If it doesn't exist, guide users through the initial setup guide
-- Verify the Liferay server is currently running at `localhost:8080` with the user before proceeding
+- Verify the Liferay server is currently running at `localhost:8080` so the user can test the extension
 - Explain in Liferay, Client Extensions are "detached" from the core. We are building a small application that the portal will "host"
 
 ## 3. Log Verification
