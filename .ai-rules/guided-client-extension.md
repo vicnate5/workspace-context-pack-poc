@@ -10,17 +10,22 @@ alwaysApply: false
 - Verify if the user wants a guided experience with creating a sample Client Extension. If they decline, this guide should only be used as a reference
 
 ## 1. One-Shot Generation
-- Create `client-extensions/liferay-hello-world-sample/` folder
-- Refer to files from https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1 to understand the file structure
-	- Do not use git to fetch the repo, download/read the individual files instead
-	- The file structure of the `client-extensions/liferay-hello-world-sample/` folder must match what is in the Github repository subdirectory
-	- Update the custom element to say "Hello World" with some custom styling
-- Explain in Liferay, Client Extensions are "detached" from the core. We are building a small application that the portal will "host"
+- Create `client-extensions/liferay-hello-world/` folder
+**ALWAYS** reference the official Liferay sample as the source of truth:
+- **Sample Location**: https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1
+- **Key Files to Reference**:
+  - `client-extension.yaml` - Use this as the template structure
+  - `assets/index.js` - Reference for JavaScript structure
+  - `assets/style.css` - Reference for CSS structure
+- Add "Hello World" message with custom styling
 
 ## 2. Deployment Guidance
-- Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file (a LUFFA) and deploy to the Liferay server.
+- **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory
+- Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file and deploy to the Liferay server
+- Deploy command: `blade gw deploy`. Will automatically copy zip to the Liferay server in `osgi/client-extensions`
 - Verify the `bundles/` folder exists. If it doesn't exist, guide users through the initial setup guide
 - Verify the Liferay server is currently running at `localhost:8080` with the user before proceeding
+- Explain in Liferay, Client Extensions are "detached" from the core. We are building a small application that the portal will "host"
 
 ## 3. Log Verification
 - Look for the log entry similar to `STARTED [extension-id]`
