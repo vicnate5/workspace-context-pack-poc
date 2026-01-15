@@ -9,6 +9,7 @@ assemble:
 liferay-hello-world-custom-element:
     cssURLs:
         -   style.*.css
+    dxp.lxc.liferay.com.virtualInstanceId: able.localhost
     friendlyURLMapping: hello-world
     htmlElementName: liferay-hello-world
     instanceable: false

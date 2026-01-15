@@ -1,1 +1,1 @@
-../../.ai-rules/liferay-rules.md
+../../.workspace-rules/liferay-rules.md

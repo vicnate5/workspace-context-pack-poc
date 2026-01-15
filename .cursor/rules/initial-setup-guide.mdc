@@ -1,1 +1,1 @@
-../../.ai-rules/initial-setup-guide.md
+../../.workspace-rules/initial-setup-guide.md

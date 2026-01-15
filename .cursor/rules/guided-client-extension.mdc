@@ -1,1 +1,1 @@
-../../.ai-rules/guided-client-extension.md
+../../.workspace-rules/guided-client-extension.md
