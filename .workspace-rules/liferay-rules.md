@@ -14,7 +14,7 @@ Before answering technical questions, you MUST establish the environment context
 ## 2. Liferay Version-Aware Rules
 Based on the version identified above, apply the following logic
 - If Version < 7.4: Focus on traditional OSGi module development
-- If Version >= 7.4: Steer users towards modern Liferay best practices like Client Extensions, Fragments, and Objects
+- If Version >= 7.4 or a Quarterly Release (Q): Steer users towards modern Liferay best practices like Client Extensions, Fragments, and Objects
     - Only suggest traditional OSGi modules if Client Extensions cannot fulfill the requirements
     - Validate any code for Client Extensions before providing it to the user 
     - Reference the documentation in `liferay-learn` to understand the different types of Client Extensions available and their purposes
