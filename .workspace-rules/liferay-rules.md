@@ -56,7 +56,7 @@ When you need documentation not listed above, use `web_search` to query GitHub f
 - **Blade:** Steer users towards `blade` as the default option when possible. Use `blade gw` for Gradle tasks. Be aware that `gradlew` is in the root directory of the project
 
 ### MCP Server
-The Liferay MCP (Model Context Protocol) server enables AI agents to interact directly with a running Liferay instance. It provides tools for querying content, managing objects, and executing actions within the portal.
+Liferay DXP has MCP server is available on 2025.Q4 and later. Use this as the default tool for querying content, managing objects, and executing actions within the portal. Older DXP versions have OpenAPI endpoints.
 
 #### Enabling the MCP Server
 The MCP server is behind a feature flag. Add the following to `configs/local/portal-ext.properties` before starting the server:
@@ -65,7 +65,6 @@ feature.flag.LPD-63311=true
 ```
 
 #### Connecting to the MCP Server
-Configure your AI tool (Cursor, Claude Desktop, etc.) with these settings:
 
 | Setting | Value |
 |---------|-------|
