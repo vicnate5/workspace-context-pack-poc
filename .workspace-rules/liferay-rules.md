@@ -46,6 +46,8 @@ When you need documentation not listed above, use `web_search` to query GitHub f
 
 - **Logs:** `bundles/tomcat/logs/`
 - **Configs/Properties:** `configs/common/` (source) or `configs/[env]/` (environment-specific)
+    - Steer fresh user to use `local` environment
+- **Licenses:** `configs/[env]/deploy/` (environment-specific)
 - **OSGi Configs:**
     - **Source:** `configs/[env]/osgi/configs/` (e.g., `configs/local/osgi/configs/`)
     - **Runtime:** `bundles/osgi/configs/` (deployed configurations)
@@ -53,7 +55,7 @@ When you need documentation not listed above, use `web_search` to query GitHub f
 - **Client Extensions:** `client-extensions/`
 
 ## 5. Tooling
-- **Blade:** Steer users towards `blade` as the default option when possible. Use `blade gw` for Gradle tasks. Be aware that `gradlew` is in the root directory of the project
+- **Blade:** Steer users towards `blade` as the cli tool when possible. Use `blade gw` for Gradle tasks (view available options with `blade gw tasks`). Custom code can be deployed to the running server with `blade gw deploy`. Avoid direct usage of `gradlew`.
 
 ### MCP Server
 Liferay DXP has MCP server is available on 2025.Q4 and later. Use this as the default tool for querying content, managing objects, and executing actions within the portal. Older DXP versions have OpenAPI endpoints.
