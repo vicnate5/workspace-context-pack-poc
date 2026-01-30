@@ -94,6 +94,7 @@ To maintain a modular and scalable configuration, additional context or speciali
 2. **Symlink Management:** This project uses symlinks to ensure auto-load across different AI tools. New rules should be symlinked into the following platform-specific folders:
     * **Cursor:** `.cursor/rules/`
     * **Gemini CLI:** `.gemini/`
+    * **Claude Code:** `.claude/`
     * **GitHub Copilot:** `.github`
     * **Windsurf:** `.windsurf/rules/`
 
