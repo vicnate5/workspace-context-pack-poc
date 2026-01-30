@@ -35,15 +35,11 @@ The authoritative source for Liferay documentation is the [liferay-learn](https:
 
 When you need documentation not listed above, use `web_search` to query GitHub for specific liferay-learn content (e.g., `site:github.com/liferay/liferay-learn [topic]`).
 
-### Sample Code: liferay-portal
-- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns
+### Source Code: liferay-portal
+- Use [liferay-portal](https://github.com/liferay/liferay-portal) to understand architectural patterns and see latest source code, note that the code might be slightly ahead of the release version used in this workspace.
 - **Client Extension Samples:** Reference working examples at `https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions`
     - Use these samples as templates when generating new client extensions
     - Check sample `client-extension.yaml` files for valid property configurations
-
-### CE Version Handling
-- If `liferay.workspace.product` is a CE release, append `/tree/[VERSION_TAG]` to any `liferay-portal` URLs (e.g., `https://github.com/liferay/liferay-portal/tree/7.4.3.132-ga132`)
-- Verify the tag matches the `liferay.workspace.product` found in the project before suggesting code
 
 ## 4. Key Project Paths
 
