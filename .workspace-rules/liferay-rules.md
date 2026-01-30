@@ -84,3 +84,19 @@ Once connected, the AI can use Liferay-provided tools to:
 - Retrieve site and page information
 - Interact with the content management system
 - Execute headless API operations
+
+## 6. Extending Workspace Rules
+
+To maintain a modular and scalable configuration, additional context or specialized rules should be stored in the `.workspace-rules` directory.
+
+### Adding New Rules
+1. **Create the Source:** Add your new `.md` rule file within the `.workspace-rules/` directory at the project root.
+2. **Symlink Management:** This project uses symlinks to ensure auto-load across different AI tools. New rules should be symlinked into the following platform-specific folders:
+    * **Cursor:** `.cursor/rules/`
+    * **Gemini CLI:** `.gemini/`
+    * **GitHub Copilot:** `.github`
+    * **Windsurf:** `.windsurf/rules/`
+
+### Rule Priority
+- **General Rules:** Keep global architectural rules in `liferay-rules.md`.
+- **Feature Rules:** Use separate files in `.workspace-rules/` for specific feature sets or agent skills.
