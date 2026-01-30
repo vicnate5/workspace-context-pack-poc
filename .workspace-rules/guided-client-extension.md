@@ -10,7 +10,7 @@ alwaysApply: false
 - Verify if the user wants a guided experience with creating a sample Client Extension. If they decline, this guide should only be used as a reference
 
 ## 1. One-Shot Generation
-- Create `client-extensions/liferay-hello-world/` folder
+- Create `client-extensions/[app-name]/` folder
 **ALWAYS** reference the official Liferay sample as the source of truth:
 - **Sample Location**: https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1
 - **Key Files to Reference**:
@@ -18,7 +18,6 @@ alwaysApply: false
   - `assets/index.js` - Reference for JavaScript structure
   - `assets/style.css` - Reference for CSS structure
 - **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory
-- Add "Hello World" message with custom styling
 
 ## 2. Deployment Guidance
 - Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file and deploy to the Liferay server
