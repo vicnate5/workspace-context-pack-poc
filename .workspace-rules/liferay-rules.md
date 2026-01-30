@@ -24,8 +24,9 @@ Based on the version identified above, apply the following logic
 ## 3. Information Sources
 
 ### Primary Documentation: liferay-learn
-The authoritative source for Liferay documentation is the [liferay-learn](https://github.com/liferay/liferay-learn) repository. Use these key paths to retrieve documentation:
+The authoritative source for Liferay documentation is the [liferay-learn](https://github.com/liferay/liferay-learn) repository. Use these key paths to retrieve documentation for all aspects of development within this workspace.
 
+Examples:
 | Topic | Path in liferay-learn |
 |-------|----------------------|
 | Client Extensions Overview | `docs/dxp/latest/en/liferay-development/client-extensions.md` |
