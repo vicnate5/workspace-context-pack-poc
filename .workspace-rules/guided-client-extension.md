@@ -9,15 +9,29 @@ alwaysApply: false
 ## 0. Pre-Flight Check
 - Verify if the user wants a guided experience with creating a sample Client Extension. If they decline, this guide should only be used as a reference
 
-## 1. One-Shot Generation
-- Create `client-extensions/[app-name]/` folder
-**ALWAYS** reference the official Liferay sample as the source of truth:
-- **Sample Location**: https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1
-- **Key Files to Reference**:
-  - `client-extension.yaml` - Use this as the template structure, start with the **exact** sample configuration for now.
-  - `assets/index.js` - Reference for JavaScript structure
-  - `assets/style.css` - Reference for CSS structure
-- **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory
+## 1. One-Shot Generation: Form That Stores Data in Objects
+
+Guide the user to create a **form that stores data in Liferay Objects**. This involves **multiple client extensions** in one shot:
+
+1. **Object definition (batch type)**  
+   Create the initial Object definition using a **batch** client extension so the form has a target Object and API to submit to. The batch type defines the Object (e.g. custom object with the fields the form will collect).
+
+2. **Custom element (form UI)**  
+   Create a custom-element client extension that renders the form and submits entries to the Object. Use the Object’s REST API to create Object Entries.
+
+**ALWAYS** reference the official Liferay samples as the source of truth:
+- **Custom element (form UI)**: https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions/liferay-sample-custom-element-1
+- **Batch (Object definition)**: Use Liferay docs/samples for batch client extensions that define Objects
+- **Key files**: `client-extension.yaml`, `assets/index.js`, `assets/style.css` for the custom element; batch extension structure for the Object definition
+
+**Form submission and CSRF (critical for permissions)**  
+- The form must use **`Liferay.Util.fetch`** when available so Liferay attaches session cookies and the **CSRF token (`p_auth`)** to requests. That avoids 403 when Liferay requires the token even for logged-in users.
+- If `Liferay.Util.fetch` is not available (e.g. outside Liferay), the form falls back to native `fetch`.
+- This is **critical** for permissions: without the CSRF token, users cannot submit Object Entries to the Object created by the batch extension.
+
+**Structure**
+- Create `client-extensions/[app-name]/` for the form (custom element) and the Object definition (batch) as separate extensions.
+- **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory.
 
 ## 2. Deployment Guidance
 - Explain that Blade uses the Gradle Wrapper (`blade gw`) to package your code into a `.zip` file and deploy to the Liferay server
