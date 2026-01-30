@@ -29,6 +29,13 @@ Guide the user to create a **form that stores data in Liferay Objects**. This in
 - If `Liferay.Util.fetch` is not available (e.g. outside Liferay), the form falls back to native `fetch`.
 - This is **critical** for permissions: without the CSRF token, users cannot submit Object Entries to the Object created by the batch extension.
 
+**Batch Object Definitions**
+When generating `*.batch-engine-data.json` files, prevent these common errors:
+- **`indexedLanguageId`**: Only valid for `String` and `Clob` DBTypes. Do NOT include on `Date` or `DateTime` fields or other non-text types.
+- **`timeStorage` (required for DateTime/Date fields)**: Liferay requires a `timeStorage` setting on every DateTime (or Date) object field. Always include this in `objectFieldSettings` for such fields, e.g. `"objectFieldSettings": [ { "name": "timeStorage", "value": "convertToUTC" } ]`. Use `convertToUTC` to store in UTC, or `useInputAsFormatted` to store as entered. Without it, batch import fails with: *"The settings 'timeStorage' are required for object field [fieldName]"*.
+- **`permissions`**: Not supported in batch imports. Set permissions via UI (Control Panel → Objects → [Object] → Permissions) or Groovy script after deployment.
+- **OAuth scopes**: Include both `Liferay.Headless.Batch.Engine.everything` AND `Liferay.Object.Admin.REST.everything` in the `client-extension.yaml`.
+
 **Structure**
 - Create `client-extensions/[app-name]/` for the form (custom element) and the Object definition (batch) as separate extensions.
 - **No build.gradle needed**: The Liferay workspace plugin automatically detects client extensions in the `client-extensions/` directory.
